@@ -1,0 +1,60 @@
+suites
+-------------------
+core
+
+cli command registry
+--------------------
+registry.py
+├── x manifests()
+├── x suites()
+├── x tags()
+├── manifests_by_tag()
+├── manifests_by_suite()
+└── stats()
+
+tree generator
+---------------
+ProjectionGenerator
+
+WhereGenerator
+
+AggregateGenerator
+
+OrderGenerator
+
+LimitGenerator
+
+execution_plan
+------------------
+x EchoExecutionPlan
+x CatExecutionPlan
+x FileExecutionPlan
+├── VirtualExecutionPlan
+├── ClusterExecutionPlan
+├── EventExecutionPlan
+└── FailureExecutionPlan
+
+reporters
+--------------------
+what would duckdb manifest and suite renderer look like
+reporting/
+├── renderers/
+x html_renderer.py
+x pdfrenderer
+x markdown_renderer.py
+x junit_renderer.py
+x json_renderer.py
+HtmlRenderer
+    ↓
+HtmlArtifact
+    ↓
+FileWriter
+    ↓
+report.html
+ParquetRenderer
+    ↓
+ParquetArtifact
+    ↓
+ParquetWriter
+    ↓
+report.parquet

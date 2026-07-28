@@ -1,0 +1,10 @@
+{
+  "name": "core",
+  "manifests": [
+    "stdin_csv_file",
+    "stdin_json_file",
+    "stdin_xml_file",
+    "stdin_yaml_file",
+    "stdin_log_file"
+  ]
+}

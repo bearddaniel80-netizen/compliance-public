@@ -1,0 +1,17 @@
+# console pretty print
+rich
+
+# used by AQL testing
+# jinja2
+# duckdb
+# fastavro
+# reportlab
+# pandas
+# pyarrow
+# pyyaml
+
+# used for CLI functions
+typer
+
+# used to make aegis whl file
+build

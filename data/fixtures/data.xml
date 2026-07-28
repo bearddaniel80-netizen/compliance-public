@@ -1,0 +1,10 @@
+<users>
+  <user>
+    <name>alice</name>
+    <age>30</age>
+  </user>
+  <user>
+    <name>bob</name>
+    <age>25</age>
+  </user>
+</users>

@@ -1,0 +1,26 @@
+{
+  "writer-render": {
+    "arrow": {
+      "loaded": false,
+      "require": ["pyarrow"],
+      "path": "writer-render/arrow"
+    },
+    "avro": {
+      "loaded": false,
+      "require": ["avro", "fastavro"],
+      "path": "writer-render/avro"
+    },
+    "csv": {
+      "loaded": false,
+      "path": "writer-render/csv"
+    },
+    "json": {
+      "loaded": false,
+      "path": "writer-render/json"
+    },
+    "xml": {
+      "loaded": false,
+      "path": "writer-render/xml"
+    }
+  }
+}

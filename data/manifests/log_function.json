@@ -1,0 +1,21 @@
+{
+  "name": "log_function",
+  "input": {
+    "type": "file",
+    "source": "log",
+    "fixture": "data.log"
+  },
+  "fields": ["line", "line_number"],
+  "filters": [
+    {"field": "line_number", "operator":"=", "value": 1},
+    {"field": "line_number", "operator":"!=", "value": 99},
+    {"field": "line_number", "operator":">=", "value": 1},
+    {"field": "line_number", "operator":"<=", "value": 99},
+    {"field": "line_number", "operator":"IN", "value": [1,2]}
+  ],
+  "tags": [
+    "table_function",
+    "log",
+    "file"
+  ]
+}

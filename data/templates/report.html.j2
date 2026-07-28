@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AQL Compliance Report</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            text-align: left;
+            background: #f5f5f5;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 1rem;
+        }
+
+        .card-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-top: 3rem;
+        }
+
+        .error {
+            color: #c62828;
+            white-space: pre-wrap;
+        }
+
+        .chart-container {
+            width: 350px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<h1>AQL Compliance Report</h1>
+
+<div class="summary-grid">
+
+    <div class="card">
+        <div>Total</div>
+        <div class="card-value">
+            {{ summary.total }}
+        </div>
+    </div>
+
+    <div class="card">
+        <div>Passed</div>
+        <div class="card-value">
+            {{ summary.passed }}
+        </div>
+    </div>
+
+    <div class="card">
+        <div>Skipped</div>
+        <div class="card-value">
+            {{ summary.skipped }}
+        </div>
+    </div>
+
+    <div class="card">
+        <div>Failed</div>
+        <div class="card-value">
+            {{ summary.failed }}
+        </div>
+    </div>
+
+    <div class="card">
+        <div>Duration</div>
+        <div class="card-value">
+            {{ summary.duration_ms }} ms
+        </div>
+    </div>
+
+    <div class="card">
+        <div>Pass Rate</div>
+        <div class="card-value">
+            {{ "%.2f"|format(summary.pass_rate) }}%
+        </div>
+    </div>
+
+</div>
+
+<div class="chart-container">
+    <canvas id="resultsChart"></canvas>
+</div>
+
+<div class="section">
+
+    <h2>Slowest Queries</h2>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Manifest</th>
+                <th>Query</th>
+                <th>Duration (ms)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for item in performance %}
+
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.query }}</td>
+                <td>{{ item.duration_ms }}</td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% if failures %}
+
+<div class="section">
+
+    <h2>Failures</h2>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Manifest</th>
+                <th>Query</th>
+                <th>Error</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for failure in failures %}
+
+            <tr>
+                <td>{{ failure.name }}</td>
+                <td>{{ failure.query }}</td>
+                <td class="error">
+                    {{ failure.error }}
+                </td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endif %}
+
+<script>
+
+new Chart(
+    document.getElementById(
+        "resultsChart"
+    ),
+    {
+        type: "doughnut",
+
+        data: {
+
+            labels: [
+                "Passed",
+                "Skipped",
+                "Failed"
+            ],
+
+            datasets: [
+                {
+                    data: [
+                        {{ summary.passed }},
+                        {{ summary.skipped }},
+                        {{ summary.failed }}
+                    ]
+                }
+            ]
+        },
+
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: "bottom"
+                }
+            }
+        }
+    }
+);
+
+</script>
+
+</body>
+</html>

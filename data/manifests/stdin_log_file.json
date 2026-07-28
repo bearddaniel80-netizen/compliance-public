@@ -1,0 +1,21 @@
+{
+  "name": "stdin_log_file",
+  "input": {
+    "type": "stdin_file",
+    "source": "stdin_file",
+    "fixture": "data.log"
+  },
+  "fields": ["line", "line_number"],
+  "filters": [
+    {"field": "line_number", "operator":"=", "value": 1},
+    {"field": "line_number", "operator":"!=", "value": 99},
+    {"field": "line_number", "operator":">=", "value": 1},
+    {"field": "line_number", "operator":"<=", "value": 99},
+    {"field": "line_number", "operator":"IN", "value": [1,2]}
+  ],
+  "tags": [
+    "stdin",
+    "log",
+    "file"
+  ]
+}

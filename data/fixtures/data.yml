@@ -1,0 +1,6 @@
+- name: alice
+  age: 30
+  active: true
+- name: bob
+  age: 25
+  active: false

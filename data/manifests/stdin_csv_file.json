@@ -1,0 +1,31 @@
+{
+  "name": "stdin_csv_file",
+  "input": {
+    "type": "stdin_file",
+    "source": "stdin_file",
+    "fixture": "data.csv"
+  },
+  "fields": ["name", "age"],
+  "filters": [
+    { "field": "name", "operator": "!=", "value": "bob" },
+    { "field": "name", "operator": "~=", "value": "b$" },
+    { "field": "name", "operator": "~=", "value": "^B" },
+    { "field": "name", "operator": "=", "value": "Bob" },
+    { "field": "name", "operator": "LIKE", "value": "B%" },
+    { "field": "name", "operator": "LIKE", "value": "%b" },
+    { "field": "name", "operator": "LIKE", "value": "B%b" },
+    { "field": "name", "operator": "IN", "value": ["Bob", "Adam"] },
+    { "field": "age", "operator": ">", "value": 26 },
+    { "field": "age", "operator": "<", "value": 46 },
+    { "field": "age", "operator": ">=", "value": 26 },
+    { "field": "age", "operator": "<=", "value": 46 },
+    { "field": "age", "operator": "=", "value": 26 },
+    { "field": "age", "operator": "!=", "value": 2 },
+    { "field": "age", "operator": "IN", "value": [26,46] }
+  ],
+  "tags": [
+    "stdin",
+    "csv",
+    "file"
+  ]
+}

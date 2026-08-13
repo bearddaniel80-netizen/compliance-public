@@ -1,0 +1,31 @@
+{
+  "name": "csv_file",
+
+  "source": {
+    "type": "csv",
+    "fixture": "data.csv"
+  },
+
+  "schema": {
+    "name": "string",
+    "age": "int"
+  },
+
+  "samples": {
+    "name": [
+      "Bob",
+      "Adam"
+    ],
+    "age": [
+      26,
+      46
+    ]
+  },
+
+  "assertion": "success",
+
+  "tags": [
+    "csv",
+    "table_function"
+  ]
+}

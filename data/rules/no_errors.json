@@ -1,0 +1,23 @@
+{
+  "no_errors": {
+    "type": "NoErrors"
+  },
+
+  "min_rows": {
+    "type": "MinRows",
+    "minimum": 1
+  },
+
+  "column_count": {
+    "type": "ColumnCount",
+    "count": 2
+  },
+
+  "column_names": {
+    "type": "ColumnNames",
+    "names": [
+      "name",
+      "age"
+    ]
+  }
+}

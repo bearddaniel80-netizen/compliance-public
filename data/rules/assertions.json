@@ -1,0 +1,18 @@
+{
+  "success": [
+    "no_errors",
+    "min_rows"
+  ],
+
+  "empty_success": [
+    "no_errors"
+  ],
+
+  "parser_failure": [
+    "parser_error"
+  ],
+
+  "semantic_failure": [
+    "analysis_error"
+  ]
+}

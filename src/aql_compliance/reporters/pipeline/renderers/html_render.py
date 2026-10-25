@@ -26,7 +26,7 @@ class HtmlRenderer:
             Path.cwd() / "templates"
         )
 
-        load("jinja")
+        load("jinja2")
         from jinja2 import (
             Environment,
             FileSystemLoader,

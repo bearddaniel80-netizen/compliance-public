@@ -2,13 +2,13 @@
 rich
 
 # used by AQL testing
-# jinja2
+jinja2
 # duckdb
 # fastavro
 # reportlab
-# pandas
+pandas
 # pyarrow
-# pyyaml
+pyyaml
 
 # used for CLI functions
 typer

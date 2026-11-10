@@ -71,8 +71,8 @@ class TreeGenerator:
             select_fields_node.add_child(
                 QueryNode(
                     name=(
-                        f"{filter_["field"]}_"
-                        f"{filter_["operator"]}"
+                        f"{filter_['field']}_"
+                        f"{filter_['operator']}"
                     ),
                     query=Query(
                         query_type=QueryType.SELECT,
